@@ -53,7 +53,7 @@ def findUrl(url):
                 try:
                     x += findUrl(toUrl)
                 except:
-                    print("cannot add to x!!!")
+                    print("cannot add to x!")
     else:
         return x;
 
@@ -76,7 +76,7 @@ def isNotImg(url):
 
 
 def urlAborted(url):
-    list = ['hdpreload', 'hao123', 'jdpay', 'weibo', 's9w','w3']
+    list = ['hdpreload', 'hao123', 'jdpay', 'weibo', 's9w', 'w3']
     for key in list:
         if url.find(key) != -1:
             return True

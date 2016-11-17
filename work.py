@@ -53,7 +53,7 @@ def findUrl(url):
                 try:
                     x += findUrl(toUrl)
                 except:
-                    print("cannot add to x!")
+                    print("cannot add to x!!")
     else:
         return x;
 

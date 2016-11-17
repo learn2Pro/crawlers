@@ -76,7 +76,7 @@ def isNotImg(url):
 
 
 def urlAborted(url):
-    list = ['hdpreload', 'hao123', 'jdpay', 'weibo', 's9w', 'w3']
+    list = ['hdpreload', 'hao123', 'facebook', 'weibo', 's9w', 'w3', 'jd']
     for key in list:
         if url.find(key) != -1:
             return True

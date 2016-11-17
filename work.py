@@ -54,8 +54,9 @@ def findUrl(url):
                     x += findUrl(toUrl)
                 except:
                     print("cannot add to x!")
-    else:
         return x;
+    else:
+        return 0;
 
 
 def isJd(html):

@@ -37,14 +37,13 @@ def submitOrder(sku):
         # request.add_header('Upgrade-Insecure-Requests', r'1')
         # request.add_header('Accept-Encoding', r'gzip, deflate')
         # request.add_header('Accept', r'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
-        cj = cookielib.CookieJar();
-        opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj));
+        cj = http.cookiejar.CookieJar()
+        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
         request = urllib.request.Request(url)  # open=urlopen response.getcode() header=response.info()
-        request.add_header('Host', r'kill.jd.com')
-        request.add_header('Cookie',
-                           r'__jdu=1451250143; __jda=122270672.303707471.1479459530.1479459530.1479459530.1; __jdb=122270672.3.303707471|1.1479459530; __jdc=122270672; __jdv=122270672|direct|-|none|-|1479459530030; o2-webp=false; _jrda=1; _jrdb=1479459533353; 3AB9D23F7A4B3C9B=CEBPYGRMU57LZ565CXRFTBJVBW3WEFGULQF5GFOTUMLXJMCIXBJYUIPM6COASLA2PQVFUHSYFA5AYYAYFNEJCZYBPU; TrackID=10KLK1tMX0X79pCkq7_3ROz1ANdyOPpYkQIUyBR1DGRIZgSod7Mc9heinuxnlW8_zqgasnw2m9tfDVMFdmkue-ZBuztnE25biR6qbXXYFOXg; pinId=ydNYJ_b65cn6JO5wjMDd9Q; pin=test_dongdong; unick=Y--___--Y; thor=03237F9332E58DE0431F787D320C39183977ABB429DE1534FDD778B81BE1F9C4D698E3EDBEBB16E83EA969988AA083FE63291D571DFAE1B6D925F8D0540F9B2849D908FC89C5480B3CEBB3844ACC83C1594667CEEA02F9353F1D7880B450F8E7CB433880FCD74AFCAC30112203067104530AB81C21BF1C767FB7D29CB6FF89A1BF968065504ADC925E503B30613BAFD2; _tp=5kfB47uSeV7jTJGynHixQA%3D%3D; _pst=test_dongdong; ceshi3.com=YijsjOW3oKV6QgtbZvhrPuGo3ZSyybrL56AXHjxl03w')
-        request.add_header('Connection', r'keep-alive')
-        response = urllib.request.urlopen(request, timeout=5)
+        opener.add_headers = [('Host', r'kill.jd.com'), ('Cookie',
+                                                         r'__jdu=1451250143; __jda=122270672.303707471.1479459530.1479459530.1479459530.1; __jdb=122270672.3.303707471|1.1479459530; __jdc=122270672; __jdv=122270672|direct|-|none|-|1479459530030; o2-webp=false; _jrda=1; _jrdb=1479459533353; 3AB9D23F7A4B3C9B=CEBPYGRMU57LZ565CXRFTBJVBW3WEFGULQF5GFOTUMLXJMCIXBJYUIPM6COASLA2PQVFUHSYFA5AYYAYFNEJCZYBPU; TrackID=10KLK1tMX0X79pCkq7_3ROz1ANdyOPpYkQIUyBR1DGRIZgSod7Mc9heinuxnlW8_zqgasnw2m9tfDVMFdmkue-ZBuztnE25biR6qbXXYFOXg; pinId=ydNYJ_b65cn6JO5wjMDd9Q; pin=test_dongdong; unick=Y--___--Y; thor=03237F9332E58DE0431F787D320C39183977ABB429DE1534FDD778B81BE1F9C4D698E3EDBEBB16E83EA969988AA083FE63291D571DFAE1B6D925F8D0540F9B2849D908FC89C5480B3CEBB3844ACC83C1594667CEEA02F9353F1D7880B450F8E7CB433880FCD74AFCAC30112203067104530AB81C21BF1C767FB7D29CB6FF89A1BF968065504ADC925E503B30613BAFD2; _tp=5kfB47uSeV7jTJGynHixQA%3D%3D; _pst=test_dongdong; ceshi3.com=YijsjOW3oKV6QgtbZvhrPuGo3ZSyybrL56AXHjxl03w')
+            , ('Connection', r'keep-alive')]
+        response = opener.open(url, timeout=5)
         print(response.read().decode('utf-8'))
         # except:
         #     print("cannot submit order this time date:%s" % datetime.now())
@@ -70,7 +69,7 @@ def kill(jsonStr):
                     scheduler = BlockingScheduler()  # BlockingScheduler
                     scheduler.add_job(submitOrder, 'date',
                                       run_date=datetime(itime.year, itime.month, itime.day, int(18),
-                                                        int(3), 0), args=[wareId])
+                                                        int(29), 0), args=[wareId])
                     # scheduler.add_job(submitOrder, 'interval', seconds=3, args=[wareId])
                     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
                     try:

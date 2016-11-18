@@ -54,9 +54,7 @@ def findUrl(url):
                     x += findUrl(toUrl)
                 except:
                     print("cannot add to x!")
-        return x;
-    else:
-        return 0;
+    return x
 
 
 def isJd(html):
@@ -77,7 +75,7 @@ def isNotImg(url):
 
 
 def urlAborted(url):
-    list = ['hdpreload', 'hao123', 'facebook', 'weibo', 's9w', 'w3', 'jd']
+    list = ['hdpreload', 'hao123', 'facebook', 'weibo', 's9w', 'w3', 'jd', 'joybuy', 'kela']
     for key in list:
         if url.find(key) != -1:
             return True
@@ -87,7 +85,10 @@ def urlAborted(url):
 def getHtml(url):
     global response, html
     try:
-        response = urllib.request.urlopen(url)  # open=urlopen response.getcode()
+        request = urllib.request.Request(url)  # open=urlopen response.getcode() header=response.info()
+        request.add_header('Content-Type', 'text/html; charset=utf-8')
+        request.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0')
+        response = urllib.request.urlopen(request, timeout=5)
     except HTTPError as e:
         print('Error code:', e.code)
     except URLError as e:
@@ -96,7 +97,10 @@ def getHtml(url):
         print('Error unknown')
     if (response.getcode() == 200):
         try:
-            html = response.read().decode('utf-8')
+            reg = r'charset=(.*)'
+            hasReg = re.compile(reg)
+            code = re.findall(hasReg, response.headers['Content-Type'])
+            html = response.read().decode(code[0])
         except UnicodeDecodeError as e:
             print('Reason', e.reason)
     else:
@@ -106,3 +110,4 @@ def getHtml(url):
 
 # html = getHtml("http://www.baidu.com/baidu?wd=jd&tn=monline_dg&ie=utf-8")
 print(findUrl("http://www.baidu.com/baidu?wd=jd&tn=monline_dg&ie=utf-8"))
+# print(findUrl("http://list.tmall.com/search_product.htm?q=jd.com&type=p&vmarket=&spm=875.7931836%2FB.a2227oh.d100&from=mallfp..pc_1_searchbutton"))

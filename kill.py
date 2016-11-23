@@ -23,30 +23,25 @@ def con():
 
 def submitOrder(sku):
     url = "http://kill.jd.com/" + sku
-    #  url = "http://localhost/"
+    # req = urllib.request.Request("http://kill.jd.com/2918972.html")
+    # req.add_header('User-Agent',r'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0')
+    # req.add_header('Host',r'kill.jd.com')
+    # req.add_header('Cookie',r"__jdu=303707471; __jda=122270672.303707471.1479459530.1479878747.1479883379.18; __jdv=122270672|direct|-|none|-|1479459530030; _jrda=14; TrackID=18sWB8uYPslsle7dI4YSm67EV3MdI8xosVqTu3qFdXcm3v_pYJeaHSD2lszmMQ8-ZUECWXiEOZ70ufu9vM5Ty19YbIJhE5fAgeLur60LIBUE; pinId=ydNYJ_b65cn6JO5wjMDd9Q; unick=Y--___--Y; _tp=5kfB47uSeV7jTJGynHixQA%3D%3D; _pst=test_dongdong; ipLocation=%u5317%u4EAC; areaId=1; ipLoc-djd=1-72-2799-0; __tra=122270672.925679695.1479795848.1479874489.1479885275.4; __trv=122270672%7Cdirect%7C-%7Cnone%7C-%7C1479884315949; __tru=46eede7f-1b01-4a11-998a-6b2aad773273; user-key=518b6134-9eef-43bc-8b7e-74edddab60a4; cn=59; erp1.jd.com=4550ADAFAF3EFB4294709A41AE8151BB9B55F7EE8DD44800F839BD8D96F23387CFC3AD1CEA6F3C070600FAEBE1549CFF12371E8BBFEF9D062F5FDC3B63C8E5A53933A376671B2747ED3877F21E2A73CF; __jdc=122270672; ceshi3.com=YijsjOW3oKV6QgtbZvhrPuGo3ZSyybrL56AXHjxl03w; _zhuangxiu_=RAGZY3S5JWKJ5EJFXYTM6MQMJEZTSXSI3YPFBELIYG3CUQUJEMQHKJKWC66SFX4FFBNSXGGVIQ7MA; sso.jd.com=901012e04a7d4a008fe0b9ee60ac1d5d; __trc=122270672; __jdb=122270672.28.303707471|18.1479883379; _jalc_=EJI5VS5LREJHSAYSEZJVNSGHKUSNRZWODARWBNCQTRFAKFMFAKH7YBCFNRDI6FJZM76KOULYNWCPD5AMAS7VRTFSJUPIY6QWB7QHFH7NH55DFERJI6TUR3VGQYLWXELR; _jshop_pop_=185bf5b435f1ae5a463115af4581628b; 3AB9D23F7A4B3C9B=CEBPYGRMU57LZ565CXRFTBJVBW3WEFGULQF5GFOTUMLXJMCIXBJYUIPM6COASLA2PQVFUHSYFA5AYYAYFNEJCZYBPU; pin=test_dongdong; thor=4842F5B521918CC05D4FEA7149F762CB4D733DC6C59BDAA3FB44B290ED7C666E1DDD7C68BF9B0870848DF2C006CC5A309AEB51FB4AE9BA9A0EEA54D2B4425B3EA70F91E832F32CEF29C6EF64CCC70157E77CAF44E1F80D2E5DA784C8638F8601DB3A963BAC7F65613C8580FD7EA3526E4822C0E91163015007A3AB4B9AB0D7955A0C0A7AE2B77DD5EEF5370802CEA397")
+    # resp = urllib.request.urlopen(req)
+    # html = resp.read()
+    # print(html.decode('utf-8'))
     for i in range(1, 3):
-        # try:
-        # headers = {
-        #     'Cookie': r'__jdu=1451250143; __jda=122270672.303707471.1479459530.1479459530.1479459530.1; __jdb=122270672.3.303707471|1.1479459530; __jdc=122270672; __jdv=122270672|direct|-|none|-|1479459530030; o2-webp=false; _jrda=1; _jrdb=1479459533353; 3AB9D23F7A4B3C9B=CEBPYGRMU57LZ565CXRFTBJVBW3WEFGULQF5GFOTUMLXJMCIXBJYUIPM6COASLA2PQVFUHSYFA5AYYAYFNEJCZYBPU; TrackID=10KLK1tMX0X79pCkq7_3ROz1ANdyOPpYkQIUyBR1DGRIZgSod7Mc9heinuxnlW8_zqgasnw2m9tfDVMFdmkue-ZBuztnE25biR6qbXXYFOXg; pinId=ydNYJ_b65cn6JO5wjMDd9Q; pin=test_dongdong; unick=Y--___--Y; thor=03237F9332E58DE0431F787D320C39183977ABB429DE1534FDD778B81BE1F9C4D698E3EDBEBB16E83EA969988AA083FE63291D571DFAE1B6D925F8D0540F9B2849D908FC89C5480B3CEBB3844ACC83C1594667CEEA02F9353F1D7880B450F8E7CB433880FCD74AFCAC30112203067104530AB81C21BF1C767FB7D29CB6FF89A1BF968065504ADC925E503B30613BAFD2; _tp=5kfB47uSeV7jTJGynHixQA%3D%3D; _pst=test_dongdong; ceshi3.com=YijsjOW3oKV6QgtbZvhrPuGo3ZSyybrL56AXHjxl03w',
-        #     'Host': r'kill.jd.com',
-        #     'Connection': r'keep-alive'
-        # }
-        # request.add_header('User-Agent', r'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0')
-        # request.add_header('Connection', r'keep-alive')
-        # request.add_header('ContentType', r'text/html')
-        # request.add_header('Upgrade-Insecure-Requests', r'1')
-        # request.add_header('Accept-Encoding', r'gzip, deflate')
-        # request.add_header('Accept', r'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
-        cj = http.cookiejar.CookieJar()
-        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
-        request = urllib.request.Request(url)  # open=urlopen response.getcode() header=response.info()
-        opener.add_headers = [('Host', r'kill.jd.com'), ('Cookie',
-                                                         r'__jdu=1451250143; __jda=122270672.303707471.1479459530.1479459530.1479459530.1; __jdb=122270672.3.303707471|1.1479459530; __jdc=122270672; __jdv=122270672|direct|-|none|-|1479459530030; o2-webp=false; _jrda=1; _jrdb=1479459533353; 3AB9D23F7A4B3C9B=CEBPYGRMU57LZ565CXRFTBJVBW3WEFGULQF5GFOTUMLXJMCIXBJYUIPM6COASLA2PQVFUHSYFA5AYYAYFNEJCZYBPU; TrackID=10KLK1tMX0X79pCkq7_3ROz1ANdyOPpYkQIUyBR1DGRIZgSod7Mc9heinuxnlW8_zqgasnw2m9tfDVMFdmkue-ZBuztnE25biR6qbXXYFOXg; pinId=ydNYJ_b65cn6JO5wjMDd9Q; pin=test_dongdong; unick=Y--___--Y; thor=03237F9332E58DE0431F787D320C39183977ABB429DE1534FDD778B81BE1F9C4D698E3EDBEBB16E83EA969988AA083FE63291D571DFAE1B6D925F8D0540F9B2849D908FC89C5480B3CEBB3844ACC83C1594667CEEA02F9353F1D7880B450F8E7CB433880FCD74AFCAC30112203067104530AB81C21BF1C767FB7D29CB6FF89A1BF968065504ADC925E503B30613BAFD2; _tp=5kfB47uSeV7jTJGynHixQA%3D%3D; _pst=test_dongdong; ceshi3.com=YijsjOW3oKV6QgtbZvhrPuGo3ZSyybrL56AXHjxl03w')
-            , ('Connection', r'keep-alive')]
-        response = opener.open(url, timeout=5)
-        print(response.read().decode('utf-8'))
-        # except:
-        #     print("cannot submit order this time date:%s" % datetime.now())
+        try:
+            req = urllib.request.Request(url)
+            req.add_header('User-Agent', r'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0')
+            req.add_header('Host', r'kill.jd.com')
+            req.add_header('Cookie',
+                           r"__jdu=303707471; __jda=122270672.303707471.1479459530.1479878747.1479883379.18; __jdv=122270672|direct|-|none|-|1479459530030; _jrda=14; TrackID=18sWB8uYPslsle7dI4YSm67EV3MdI8xosVqTu3qFdXcm3v_pYJeaHSD2lszmMQ8-ZUECWXiEOZ70ufu9vM5Ty19YbIJhE5fAgeLur60LIBUE; pinId=ydNYJ_b65cn6JO5wjMDd9Q; unick=Y--___--Y; _tp=5kfB47uSeV7jTJGynHixQA%3D%3D; _pst=test_dongdong; ipLocation=%u5317%u4EAC; areaId=1; ipLoc-djd=1-72-2799-0; __tra=122270672.925679695.1479795848.1479874489.1479885275.4; __trv=122270672%7Cdirect%7C-%7Cnone%7C-%7C1479884315949; __tru=46eede7f-1b01-4a11-998a-6b2aad773273; user-key=518b6134-9eef-43bc-8b7e-74edddab60a4; cn=59; erp1.jd.com=4550ADAFAF3EFB4294709A41AE8151BB9B55F7EE8DD44800F839BD8D96F23387CFC3AD1CEA6F3C070600FAEBE1549CFF12371E8BBFEF9D062F5FDC3B63C8E5A53933A376671B2747ED3877F21E2A73CF; __jdc=122270672; ceshi3.com=YijsjOW3oKV6QgtbZvhrPuGo3ZSyybrL56AXHjxl03w; _zhuangxiu_=RAGZY3S5JWKJ5EJFXYTM6MQMJEZTSXSI3YPFBELIYG3CUQUJEMQHKJKWC66SFX4FFBNSXGGVIQ7MA; sso.jd.com=901012e04a7d4a008fe0b9ee60ac1d5d; __trc=122270672; __jdb=122270672.28.303707471|18.1479883379; _jalc_=EJI5VS5LREJHSAYSEZJVNSGHKUSNRZWODARWBNCQTRFAKFMFAKH7YBCFNRDI6FJZM76KOULYNWCPD5AMAS7VRTFSJUPIY6QWB7QHFH7NH55DFERJI6TUR3VGQYLWXELR; _jshop_pop_=185bf5b435f1ae5a463115af4581628b; 3AB9D23F7A4B3C9B=CEBPYGRMU57LZ565CXRFTBJVBW3WEFGULQF5GFOTUMLXJMCIXBJYUIPM6COASLA2PQVFUHSYFA5AYYAYFNEJCZYBPU; pin=test_dongdong; thor=4842F5B521918CC05D4FEA7149F762CB4D733DC6C59BDAA3FB44B290ED7C666E1DDD7C68BF9B0870848DF2C006CC5A309AEB51FB4AE9BA9A0EEA54D2B4425B3EA70F91E832F32CEF29C6EF64CCC70157E77CAF44E1F80D2E5DA784C8638F8601DB3A963BAC7F65613C8580FD7EA3526E4822C0E91163015007A3AB4B9AB0D7955A0C0A7AE2B77DD5EEF5370802CEA397")
+            resp = urllib.request.urlopen(req)
+            html = resp.read()
+            print(html.decode('utf-8'))
+        except:
+            print("cannot submit order this time date:%s" % datetime.now())
 
 
 def tick():
@@ -68,8 +63,8 @@ def kill(jsonStr):
                     itime = datetime.now()
                     scheduler = BlockingScheduler()  # BlockingScheduler
                     scheduler.add_job(submitOrder, 'date',
-                                      run_date=datetime(itime.year, itime.month, itime.day, int(18),
-                                                        int(29), 0), args=[wareId])
+                                      run_date=datetime(itime.year, itime.month, itime.day, int(startTimeShow[0:2]),
+                                                        int(startTimeShow[3:5]), 0), args=[wareId])
                     # scheduler.add_job(submitOrder, 'interval', seconds=3, args=[wareId])
                     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
                     try:
@@ -97,8 +92,8 @@ def getHtml(url):
                 wareId = ware["wareId"]
                 itime = datetime.now()
                 startTimeShow = ware["startTimeShow"]
-                # if (itime.hour * 60 + itime.minute + 5 < int(startTimeShow[0:2]) * 60 + int(startTimeShow[3:5])):
-                kill(jsonStr)
+                if (itime.hour * 60 + itime.minute + 5 < int(startTimeShow[0:2]) * 60 + int(startTimeShow[3:5])):
+                    kill(jsonStr)
                 # print(wareId)
     except:
         print("seckill error !")
@@ -109,7 +104,7 @@ def tickForJson(url):
     try:
         if __name__ == '__main__':
             scheduler = BlockingScheduler()  # BackgroundScheduler
-            scheduler.add_job(getHtml, 'interval', seconds=1, args=[url])
+            scheduler.add_job(getHtml, 'interval', minutes=1, args=[url])
             try:
                 scheduler.start()
             except (KeyboardInterrupt, SystemExit):

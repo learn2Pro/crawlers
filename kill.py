@@ -61,7 +61,7 @@ def kill(jsonStr):
                 print(wareId)
                 if __name__ == '__main__':
                     itime = datetime.now()
-                    scheduler = BlockingScheduler()  # BlockingScheduler
+                    scheduler = BackgroundScheduler()  # BlockingScheduler
                     scheduler.add_job(submitOrder, 'date',
                                       run_date=datetime(itime.year, itime.month, itime.day, int(startTimeShow[0:2]),
                                                         int(startTimeShow[3:5]), 0), args=[wareId])
@@ -104,7 +104,7 @@ def tickForJson(url):
     try:
         if __name__ == '__main__':
             scheduler = BlockingScheduler()  # BackgroundScheduler
-            scheduler.add_job(getHtml, 'interval', minutes=1, args=[url])
+            scheduler.add_job(getHtml, 'interval', seconds=1, args=[url])
             try:
                 scheduler.start()
             except (KeyboardInterrupt, SystemExit):
@@ -114,3 +114,4 @@ def tickForJson(url):
 
 
 tickForJson("http://ai.jd.com/index_new?app=Seckill&action=pcMiaoShaAreaList&callback=pcMiaoShaAreaList")
+# submitOrder("3028491")

@@ -25,7 +25,7 @@ print(record_metadata.offset)
 
 # produce keyed messages to enable hashed partitioning
 for _ in range(105):
-    producer.send('test-logs', key=b'foo1', value=b'bar1')
+    producer.send('test-logs', key=b'foo4', value=b'bar4')
 
 # # encode objects via msgpack
 # producer = KafkaProducer(value_serializer=msgpack.dumps)

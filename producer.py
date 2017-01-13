@@ -63,7 +63,7 @@ def findUrl(url):
     global i
     i += 1
     producer = KafkaProducer(bootstrap_servers=['master:9092', 'slave:9092'])
-    key = 'logs-' + str(i)
+    key = 'logs' + str(i)
     producer.send('htmls', key=str.encode(key, encoding='utf-8'), value=str.encode(html, encoding='utf-8'))
     producer.close(timeout=10)
     x = isJd(html)
@@ -85,8 +85,8 @@ def findUrl(url):
 
 
 i = 0
-print(findUrl("https://www.google.com.hk/search?q=jd&rlz=1C1CHWL_zh-cnUS724US724&oq=jd&aqs=chrome..69i57j69i60l4j69i59.311j0j8&sourceid=chrome&ie=UTF-8"))
-# print(findUrl("http://www.baidu.com/baidu?wd=jd&tn=monline_dg&ie=utf-8"))
+# print(findUrl("https://www.google.com.hk/search?q=jd&rlz=1C1CHWL_zh-cnUS724US724&oq=jd&aqs=chrome..69i57j69i60l4j69i59.311j0j8&sourceid=chrome&ie=UTF-8"))
+print(findUrl("http://www.baidu.com/baidu?wd=jd&tn=monline_dg&ie=utf-8"))
 
 # Asynchronous by default
 # future = producer.send('test-logs', b'raw_bytes')

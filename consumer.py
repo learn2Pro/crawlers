@@ -30,13 +30,20 @@ for message in consumer:
     # e.g., for unicode: `message.value.decode('utf-8')
     last = cli.get('logs')
     if last is None:
-        value = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "   %s:%d:%d: key=%s value=%s" % (
+        # value = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "   %s:%d:%d: key=%s value=%s" % (
+        #     message.topic, message.partition,
+        #     message.offset, message.key,
+        #     message.value.decode('utf-8'))
+        value = "%s:%d:%d: key=%s value=%s" % (
             message.topic, message.partition,
             message.offset, message.key,
             message.value.decode('utf-8'))
     else:
-        value = last.decode('utf-8') + "<br \>" + datetime.datetime.now().strftime(
-            "%Y-%m-%d %H:%M:%S") + "   %s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
+        # value = last.decode('utf-8') + "<br \>" + datetime.datetime.now().strftime(
+        #     "%Y-%m-%d %H:%M:%S") + "   %s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
+        #                                                              message.offset, message.key,
+        #                                                              message.value.decode('utf-8'))
+        value = last.decode('utf-8') + "<br \>" + "%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
                                                                      message.offset, message.key,
                                                                      message.value.decode('utf-8'))
     cli.set('logs', value, ex=36000);

@@ -1,6 +1,3 @@
-from kafka import KafkaProducer
-from kafka.errors import KafkaError
-import log
 import re
 import urllib.request
 from urllib.error import URLError, HTTPError

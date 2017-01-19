@@ -44,8 +44,8 @@ for message in consumer:
         #                                                              message.offset, message.key,
         #                                                              message.value.decode('utf-8'))
         value = last.decode('utf-8') + "<br \>" + "%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
-                                                                     message.offset, message.key,
-                                                                     message.value.decode('utf-8'))
+                                                                                 message.offset, message.key,
+                                                                                 message.value.decode('utf-8'))
     cli.set('logs', value, ex=36000);
     print("%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
                                          message.offset, message.key,
